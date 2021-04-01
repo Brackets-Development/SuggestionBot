@@ -1,2 +1,1 @@
 # SuggestionBot
-# SuggestionBot
