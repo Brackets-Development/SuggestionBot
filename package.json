@@ -1,0 +1,22 @@
+{
+  "name": "suggestionbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/01556/SuggestionBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/01556/SuggestionBot/issues"
+  },
+  "homepage": "https://github.com/01556/SuggestionBot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.2"
+  }
+}
