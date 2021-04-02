@@ -1,22 +1,22 @@
 // configuration
 const Config = require('./config.json');
 
+// botcommand module
+const BotCommands = require("./commands.js");
+
 // discord API
 const Discord = require('discord.js');
 
 // discord API objects
 let client; // discord client
 
-// bot objects
+// bot
 let bot = {
-	commands: {}
+	commands: [],
 };
 
-// command: /pi	ng
-bot.commands.ping = message => {
-	// reply
-	message.reply("pong");
-};
+// assign bot commands
+BotCommands.assign(bot.commands);
 
 // bot setup function
 bot.setup = () => {
@@ -27,9 +27,7 @@ bot.setup = () => {
 	console.log("Logging into discord bot with key:", Config.client_key);
 
 	// login with client
-	client.login(Config.client_key)
-		.then(console.log)
-		.catch(console.error);
+	client.login(Config.client_key);
 };
 
 // bind bot events
@@ -46,11 +44,7 @@ bot.bind = () => {
 		// match message command
 		for(let [key, command_function] of Object.entries(bot.commands)) {
 			// attempt to match command
-			if(message.content === key) {
-				// log
-				console.log("Matched command:", key);
-				console.log("Running associated function", command_function);
-
+			if(message.content.startsWith(key)) {
 				// command matched
 				command_function(message);
 			}
